@@ -11,8 +11,8 @@ memset:
     mov rcx, rdi                        ; we use rcx as a counter, we will increment it and check it against rdx
 
 set_and_inc:
+   mov byte [rcx], sil                  ; set one byte in the current address with value from the c argument
    add rcx, 1                           ; increment the counter by one
-   mov byte [rcx - 1], sil              ; set one byte in the current address with value from the c argument
    cmp rcx, rdx                         ; check if we are at the last memory address to set
    jne set_and_inc                      ; if we are not, jump back to set the next byte
 
