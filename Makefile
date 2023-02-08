@@ -12,7 +12,8 @@ GCC			=	gcc
 
 LD			=	ld
 
-SRC			=	src/strlen.asm
+SRC			=	src/strlen.asm	\
+				src/memset.asm
 
 OBJ			=	$(SRC:.asm=.o)
 

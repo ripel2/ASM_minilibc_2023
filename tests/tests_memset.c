@@ -6,7 +6,13 @@ void *(*my_memset)(void *, int, size_t);
 
 void init_memset(void)
 {
-    my_memset = memset;
+    void *handle = dlopen("./libasm.so", RTLD_LAZY);
+
+    if (!handle) {
+        fprintf(stderr, "%s\n", dlerror());
+        exit(1);
+    }
+    my_memset = dlsym(handle, "memset");
 }
 
 Test(my_memset, memset_string_basic_1, .init = init_memset, .timeout = 2)
