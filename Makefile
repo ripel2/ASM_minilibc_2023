@@ -22,6 +22,7 @@ NAME		=	libasm.so
 NASMFLAGS	=	-f elf64
 
 TESTS_SRC	=	tests/tests_strlen.c	\
+				tests/tests_strchr.c	\
 				tests/tests_memset.c
 TESTS_OBJ	=	$(TESTS_SRC:.c=.o)
 
