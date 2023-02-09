@@ -44,7 +44,6 @@ Test(my_strchr, strchr_not_found, .init = init_strchr, .timeout = 2)
     char str[] = "Hello World !";
     char *ptr = my_strchr(str, 'z');
 
-    printf("strchr_not_found: expected %p, got %p, diff with str %d\n", NULL, ptr, ptr - str);
     cr_assert_null(ptr);
 }
 
