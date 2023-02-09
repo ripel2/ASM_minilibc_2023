@@ -6,7 +6,13 @@ char *(*my_strchr)(const char *, int);
 
 void init_strchr(void)
 {
-    my_strchr = strchr;
+    void *handle = dlopen("./libasm.so", RTLD_LAZY);
+
+    if (!handle) {
+        fprintf(stderr, "%s\n", dlerror());
+        exit(1);
+    }
+    my_strchr = dlsym(handle, "strchr");
 }
 
 Test(my_strchr, strchr_basic_1, .init = init_strchr, .timeout = 2)
@@ -25,11 +31,20 @@ Test(my_strchr, strchr_basic_2, .init = init_strchr, .timeout = 2)
     cr_assert_eq(ptr, str + 4);
 }
 
+Test(my_strchr, strchr_basic_3, .init = init_strchr, .timeout = 2)
+{
+    char str[] = "Hello World !";
+    char *ptr = my_strchr(str, 'H');
+
+    cr_assert_eq(ptr, str);
+}
+
 Test(my_strchr, strchr_not_found, .init = init_strchr, .timeout = 2)
 {
     char str[] = "Hello World !";
     char *ptr = my_strchr(str, 'z');
 
+    printf("strchr_not_found: expected %p, got %p, diff with str %d\n", NULL, ptr, ptr - str);
     cr_assert_null(ptr);
 }
 
