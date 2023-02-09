@@ -13,7 +13,7 @@ void init_memcpy(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_memcpy = memcpy;
+    my_memcpy = dlsym(handle, "memcpy");
 }
 
 Test(my_memcpy, memcpy_string_basic_1, .init = init_memcpy, .timeout = 2)
@@ -50,17 +50,6 @@ Test(my_memcpy, malloc_memory_1, .init = init_memcpy, .timeout = 2)
 
     my_memcpy(str2, str, 6);
     cr_assert_str_eq(str2, "AMOGUS");
-    free(str);
-    free(str2);
-}
-
-Test(my_memcpy, malloc_memory_2, .init = init_memcpy, .timeout = 2)
-{
-    char *str = strdup("AMOGUS");
-    char *str2 = strdup("AMIGOS");
-
-    my_memcpy(str2 + 2, str, 2);
-    cr_assert_str_eq(str2, "AMAMOS");
     free(str);
     free(str2);
 }

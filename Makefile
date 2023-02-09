@@ -14,7 +14,8 @@ LD			=	ld
 
 SRC			=	src/strlen.asm	\
 				src/strchr.asm	\
-				src/memset.asm
+				src/memset.asm	\
+				src/memcpy.asm
 
 OBJ			=	$(SRC:.asm=.o)
 
@@ -24,7 +25,8 @@ NASMFLAGS	=	-f elf64
 
 TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strchr.c	\
-				tests/tests_memset.c
+				tests/tests_memset.c	\
+				tests/tests_memcpy.c
 TESTS_OBJ	=	$(TESTS_SRC:.c=.o)
 
 TESTS_FLAGS	=	-lcriterion -ldl
