@@ -6,13 +6,14 @@ section .text
 memcpy:
     enter 0, 0                          ; prelude
     mov rcx, 0                          ; set rcx to 0, used as a counter for the current byte to copy
-  
-set_and_loop:
+
+check_and_loop:
+    cmp rdx, rcx                        ; compare the counter and the size argument
+    je return                           ; if we didnt reach the end we need to continue tne loop
     mov r8b, byte [rsi + rcx]           ; store the current byte in a temporary byte register
     mov byte [rdi + rcx], r8b           ; copy the byte in the other address
     inc rcx                             ; increment the counter
-    cmp rdx, rcx                        ; compare the counter and the size argument
-    jne set_and_loop                    ; if we didnt reach the end we need to continue tne loop
+    jmp check_and_loop                  ; continue the loop
 
 return:
     leave                               ; epilogue
