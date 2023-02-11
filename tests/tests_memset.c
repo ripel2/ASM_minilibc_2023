@@ -31,6 +31,31 @@ Test(my_memset, memset_string_basic_2, .init = init_memset, .timeout = 2)
     cr_assert_str_eq(str, "BBBBBB");
 }
 
+Test(my_memset, address_is_correct_1, .init = init_memset, .timeout = 2)
+{
+    char *str = strdup("Encore un test");
+
+    str = my_memset(str, 'a', 5);
+    cr_assert_str_eq(str, "aaaaae un test");
+}
+
+Test(my_memset, address_is_correct_2, .init = init_memset, .timeout = 2)
+{
+    int *list = malloc(sizeof(int) * 5);
+
+    list[0] = 1;
+    list[1] = 2;
+    list[2] = 3;
+    list[3] = 4;
+    list[4] = 5;
+    list = my_memset(list, 0, 5 * sizeof(int));
+    cr_assert_eq(list[0], 0);
+    cr_assert_eq(list[1], 0);
+    cr_assert_eq(list[2], 0);
+    cr_assert_eq(list[3], 0);
+    cr_assert_eq(list[4], 0);
+}
+
 Test(my_memset, memset_nothing, .init = init_memset, .timeout = 2)
 {
     char str[] = "Hello World !";

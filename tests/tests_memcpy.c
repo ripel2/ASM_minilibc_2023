@@ -95,6 +95,17 @@ Test(my_memcpy, int_list_malloc_1, .init = init_memcpy, .timeout = 2)
     free(tab2);
 }
 
+Test(my_memcpy, malloc_memory_2, .init = init_memcpy, .timeout = 2)
+{
+    char *str = strdup("AMOGUS");
+    char *str2 = strdup("AMIGOS");
+
+    my_memcpy(str2 + 2, str, 2);
+    cr_assert_str_eq(str2, "AMAMOS");
+    free(str);
+    free(str2);
+}
+
 Test(my_memcpy, unaligned_copy_1, .init = init_memcpy, .timeout = 2)
 {
     int tab[] = {1, 2, 3, 4, 67107840, 6, 7, 8, 9, 10};
