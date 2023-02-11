@@ -5,7 +5,6 @@ section .text
 
 memcpy:
     enter 0, 0
-    mov rdi, rax
     cmp rdx, 0
     je return
     mov rcx, 0
