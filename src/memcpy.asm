@@ -5,10 +5,6 @@ section .text
 
 memcpy:
     enter 0, 0                          ; prelude
-    cmp rdi, 0                          ; check if first ptr is equal to zero (NULL)
-    je return                           ; if it is, return
-    cmp rsi, 0                          ; check if second ptr is equal to zero (NULL)
-    je return                           ; if it is, return
     mov rcx, 0                          ; set rcx to 0, used as a counter for the current byte to copy
   
 set_and_loop:
