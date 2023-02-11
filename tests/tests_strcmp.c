@@ -13,7 +13,7 @@ void init_strcmp(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_strcmp = strcmp;
+    my_strcmp = dlsym(handle, "strcmp");
 }
 
 Test(my_strcmp, strcmp_basic_1, .init = init_strcmp, .timeout = 2)
