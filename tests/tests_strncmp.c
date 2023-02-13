@@ -13,7 +13,7 @@ void init_strncmp(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_strncmp = strncmp;
+    my_strncmp = dlsym(handle, "strncmp");
 }
 
 Test(my_strncmp, strncmp_basic_1, .init = init_strncmp, .timeout = 2)
@@ -40,7 +40,7 @@ Test(my_strncmp, strncmp_basic_3, .init = init_strncmp, .timeout = 2)
     cr_assert_eq(my_strncmp(str, str2, 0), 0);
 }
 
-Test(my_strncmp, strcnp_basic_4, .init = init_strncmp, .timeout = 2)
+Test(my_strncmp, strcmp_basic_4, .init = init_strncmp, .timeout = 2)
 {
     char str[] = "au revoir";
     char str2[] = "bonjour";
