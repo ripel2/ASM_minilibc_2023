@@ -26,8 +26,3 @@ diff_and_return:
     sub eax, ecx                        ; compute diff between two last bytes
     leave                               ; epilogue
     ret
-
-ret_zero:
-    mov eax, 0                          ; set result to zero
-    leave                               ; epilogue
-    ret
