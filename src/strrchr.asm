@@ -4,6 +4,7 @@ section .text
     global strrchr                      ; export strrchr
 
 strrchr:
+    enter 0, 0                          ; prelude
     movzx eax, byte [rdi]               ; get the first byte of the string in a 4 byte register
     cmp al, 0                           ; check if it is zero
     je set_zero                         ; if it is, jump to set zero (reached end of string)
@@ -21,6 +22,7 @@ verif_null:
     cmp esi, 0                          ; if we need to return the result, we check if c is \0
     cmove rdx, rdi                      ; if it is we need to return the position of \0 so we set the result to it
     mov rax, rdx                        ; put the result in the return register
+    leave                               ; epilogue
     ret                                 ; return
 
 set_zero:
