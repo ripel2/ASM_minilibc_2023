@@ -14,6 +14,7 @@ LD			=	ld
 
 SRC			=	src/strlen.asm	\
 				src/strchr.asm	\
+				src/strrchr.asm	\
 				src/strcmp.asm	\
 				src/strncmp.asm	\
 				src/memset.asm	\
@@ -27,6 +28,7 @@ NASMFLAGS	=	-f elf64
 
 TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strchr.c	\
+				tests/tests_strrchr.c	\
 				tests/tests_strcmp.c	\
 				tests/tests_strncmp.c	\
 				tests/tests_memset.c	\
