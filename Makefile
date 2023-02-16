@@ -19,7 +19,9 @@ SRC			=	src/strlen.asm	\
 				src/strcasecmp.asm	\
 				src/strncmp.asm	\
 				src/memset.asm	\
-				src/memcpy.asm
+				src/memcpy.asm	\
+				src/index.asm	\
+				src/rindex.asm
 
 OBJ			=	$(SRC:.asm=.o)
 
@@ -34,7 +36,9 @@ TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strcasecmp.c	\
 				tests/tests_strncmp.c	\
 				tests/tests_memset.c	\
-				tests/tests_memcpy.c
+				tests/tests_memcpy.c	\
+				tests/tests_index.c	\
+				tests/tests_rindex.c
 TESTS_OBJ	=	$(TESTS_SRC:.c=.o)
 
 TESTS_FLAGS	=	-lcriterion -ldl
