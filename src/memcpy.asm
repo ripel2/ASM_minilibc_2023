@@ -5,6 +5,7 @@ section .text
 
 memcpy:
     enter 0, 0                          ; prelude
+    mov rax, rdi                        ; set return value of memcpy to the original pointer
     mov rcx, 0                          ; set rcx to 0, used as a counter for the current byte to copy
 
 check_and_loop:

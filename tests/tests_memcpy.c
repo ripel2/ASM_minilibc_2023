@@ -34,6 +34,31 @@ Test(my_memcpy, memcpy_string_basic_2, .init = init_memcpy, .timeout = 2)
     cr_assert_str_eq(str, "roujour");
 }
 
+Test(my_memcpy, check_return_value_1, .init = init_memcpy, .timeout = 2)
+{
+    char str[] = "bonjour";
+    char str2[] = "roujnob";
+
+    cr_assert_eq(my_memcpy(str, str2, 3), str);
+}
+
+Test(my_memcpy, check_return_value_2, .init = init_memcpy, .timeout = 2)
+{
+    char str[] = "bonjour";
+    char str2[] = "roujnob";
+
+    cr_assert_eq(my_memcpy(str + 2, str2, 3), str + 2);
+}
+
+Test(my_memcpy, check_return_value_3, .init = init_memcpy, .timeout = 2)
+{
+    char str[] = "bonjour";
+    char str2[] = "roujnob";
+
+    strlen(str) + 3 - 4;
+    cr_assert_eq(my_memcpy(str + 2, str2, 3), str + 2);
+}
+
 Test(my_memcpy, memcpy_string_add_ptr, .init = init_memcpy, .timeout = 2)
 {
     char str[] = "bonjour";
