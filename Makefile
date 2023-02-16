@@ -18,6 +18,7 @@ SRC			=	src/strlen.asm	\
 				src/strcmp.asm	\
 				src/strcasecmp.asm	\
 				src/strncmp.asm	\
+				src/strstr.asm	\
 				src/memset.asm	\
 				src/memcpy.asm	\
 				src/index.asm	\
@@ -35,6 +36,7 @@ TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strcmp.c	\
 				tests/tests_strcasecmp.c	\
 				tests/tests_strncmp.c	\
+				tests/tests_strstr.c	\
 				tests/tests_memset.c	\
 				tests/tests_memcpy.c	\
 				tests/tests_index.c	\
