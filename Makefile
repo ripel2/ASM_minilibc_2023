@@ -39,6 +39,7 @@ TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strstr.c	\
 				tests/tests_memset.c	\
 				tests/tests_memcpy.c	\
+				tests/tests_memmove.c	\
 				tests/tests_index.c	\
 				tests/tests_rindex.c
 TESTS_OBJ	=	$(TESTS_SRC:.c=.o)
