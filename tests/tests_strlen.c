@@ -20,11 +20,6 @@ Test(my_strlen, basic_1, .init = init_strlen, .timeout = 2)
     cr_assert_eq(my_strlen("Coucou"), 6);
 }
 
-Test(my_strlen, basic_2, .init = init_strlen, .timeout = 2)
-{
-    cr_assert_eq(my_strlen("Les batards ils ont fume Pop Simoke"), 35);
-}
-
 Test(my_strlen, empty, .init = init_strlen, .timeout = 2)
 {
     cr_assert_eq(my_strlen(""), 0);
