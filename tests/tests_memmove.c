@@ -13,7 +13,7 @@ void init_memmove(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_memmove = memmove;
+    my_memmove = dlsym(handle, "memmove");
 }
 
 Test(my_memmove, specific_memmove_1, .init = init_memmove, .timeout = 2)
@@ -95,6 +95,22 @@ Test(my_memmove, edge_case_4, .init = init_memmove, .timeout = 2)
 
     my_memmove(str + 2, str + 1, 7);
     cr_assert_str_eq(str, "heello, wrld!");
+}
+
+Test(my_memmove, edge_case_5, .init = init_memmove, .timeout = 2)
+{
+    char str[] = "hello, world!";
+
+    my_memmove(str + 1, str, 7);
+    cr_assert_str_eq(str, "hhello, orld!");
+}
+
+Test(my_memmove, edge_case_6, .init = init_memmove, .timeout = 2)
+{
+    char str[] = "hello, world!";
+
+    my_memmove(str, str + 1, 7);
+    cr_assert_str_eq(str, "ello, wworld!");
 }
 
 Test(my_memmove, return_1, .init = init_memmove, .timeout = 2)
