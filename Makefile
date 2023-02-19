@@ -22,6 +22,8 @@ SRC			=	src/strlen.asm	\
 				src/memset.asm	\
 				src/memcpy.asm	\
 				src/memmove.asm	\
+				src/strpbrk.asm	\
+				src/strcspn.asm	\
 				src/index.asm	\
 				src/rindex.asm
 

@@ -12,7 +12,7 @@ void init_strcspn(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_strcspn = strcspn;
+    my_strcspn = dlsym(handle, "strcspn");
 }
 
 Test(my_strcspn, strcspn_basic_1, .init = init_strcspn, .timeout = 2)

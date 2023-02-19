@@ -12,7 +12,7 @@ void init_strpbrk(void)
         fprintf(stderr, "%s\n", dlerror());
         exit(1);
     }
-    my_strpbrk = strpbrk;
+    my_strpbrk = dlsym(handle, "strpbrk");
 }
 
 Test(my_strpbrk, strpbrk_basic_1, .init = init_strpbrk, .timeout = 2)
