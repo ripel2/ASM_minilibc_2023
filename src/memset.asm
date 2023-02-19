@@ -13,7 +13,7 @@ check_and_loop:
     cmp rcx, rdx                        ; check if we are at the last memory address to set
     je return                           ; if we are, jump to return
     mov byte [rcx], sil                 ; set one byte in the current address with value from the c argument
-    add rcx, 1                          ; increment the counter by one
+    inc rcx                             ; increment the counter by one
     jmp check_and_loop                  ; continue the loop
 
 return:
