@@ -22,6 +22,7 @@ SRC			=	src/strlen.asm	\
 				src/memset.asm	\
 				src/memcpy.asm	\
 				src/memmove.asm	\
+				src/memfrob.asm	\
 				src/strpbrk.asm	\
 				src/strcspn.asm	\
 				src/index.asm	\
@@ -43,6 +44,7 @@ TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_memset.c	\
 				tests/tests_memcpy.c	\
 				tests/tests_memmove.c	\
+				tests/tests_memfrob.c	\
 				tests/tests_strpbrk.c	\
 				tests/tests_strcspn.c	\
 				tests/tests_index.c	\
