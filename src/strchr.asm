@@ -2,7 +2,9 @@ bits 64                                 ; set the register sizes to 64 bits
     
 section .text   
     global strchr                       ; export strchr
+    global index                        ; export index
 
+index:
 strchr:
     enter 0, 0                          ; prelude
 

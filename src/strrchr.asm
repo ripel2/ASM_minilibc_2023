@@ -2,7 +2,9 @@ bits 64                                 ; set the register sizes to 64 bits
  
 section .text   
     global strrchr                      ; export strrchr
+    global rindex
 
+rindex:
 strrchr:
     enter 0, 0                          ; prelude
     movzx eax, byte [rdi]               ; get the first byte of the string in a 4 byte register
