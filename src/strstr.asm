@@ -7,6 +7,8 @@ strstr:
     enter 0, 0                          ; prelude
     cmp byte [rsi], 0                   ; see if the needle is an empty string (needle[0] = '\0')
     je found_empty_needle               ; if it is, return str, else we can start the search
+    cmp byte [rdi], 0                   ; see if the string is empty
+    je return_zero                      ; if it is, return null
     mov rax, 0                          ; set rax to 0 (will be used as a counter for the current string of str)
 
 main_loop:
