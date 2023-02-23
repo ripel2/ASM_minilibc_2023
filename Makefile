@@ -24,7 +24,8 @@ SRC			=	src/strlen.asm	\
 				src/memmove.asm	\
 				src/memfrob.asm	\
 				src/strpbrk.asm	\
-				src/strcspn.asm
+				src/strcspn.asm	\
+				src/ffs.asm
 
 OBJ			=	$(SRC:.asm=.o)
 
@@ -46,7 +47,8 @@ TESTS_SRC	=	tests/tests_strlen.c	\
 				tests/tests_strpbrk.c	\
 				tests/tests_strcspn.c	\
 				tests/tests_index.c	\
-				tests/tests_rindex.c
+				tests/tests_rindex.c	\
+				tests/tests_ffs.c
 TESTS_OBJ	=	$(TESTS_SRC:.c=.o)
 
 TESTS_FLAGS	=	-lcriterion -ldl
